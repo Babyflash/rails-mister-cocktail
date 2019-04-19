@@ -1,0 +1,9 @@
+
+<% @cocktails.each do |cocktail| %>
+  <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+  <%= link_to "Delete Poison",  cocktail_path(cocktail), method: :delete %>
+ <% end %>
+
+<div class="flex">
+  <span class="btn"><%= link_to "Create Poison", new_cocktail_path %></span>
+ </div>

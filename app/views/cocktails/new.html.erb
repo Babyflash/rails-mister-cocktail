@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Create your new Poison</h3>
+        <%= simple_form_for @cocktail do |f| %>
+          <%= f.label :name, "Cocktail  :" %>
+          <%= f.text_field :name %>
+
+
+          <%= f.fields_for :doses do |dose| %>
+            <br>
+            <h6>Dose</h6>
+            <%= f.label :Measure %>
+            <%= dose.text_field :name %>
+            <%= f.label :Description %>
+            <%= dose.text_field :description %>
+            <%= dose.label :name, "Ingredient name" %>
+            <%= dose.select :ingredient_id, options_from_collection_for_select(Ingredient.all, 'id', 'name') %>
+
+            <br>
+
+          <% end %>
+
+         <%= f.submit %>
+       <% end %>
+    </div>
+  </div>
+</div>
